@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>עגלת קפה לוצ'ה</title>
+  <link rel="icon" type="image/png" href="file:///D:/downloads/ChatGPT%20Image%20Dec%205,%202025,%2005_14_00%20PM.png">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 300;
+      background: #ffffff;
+      color: #333;
+      overflow-x: hidden;
+      letter-spacing: 0.03em;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Header */
+    header {
+      background: linear-gradient(to bottom, #8a6432, #5e421f);
+      color: white;
+      text-align: center;
+      padding: 1px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    header .logo {
+      width: 160px;
+      display: block;
+      margin: 0 auto 3px;
+    }
+
+    .top-nav {
+      position: relative;
+      top: -25px;
+      text-align: center;
+    }
+
+    .top-nav a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.15rem;
+      font-weight: 300;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: 0.3s;
+      letter-spacing: 0.05em;
+    }
+
+    .top-nav a:hover { background: rgba(255, 255, 255, 0.2); top: -5px; }
+
+    .hamburger {
+      display: none;
+      position: absolute;
+      left: 20px;
+      top: 18px;
+      width: 30px;
+      height: 24px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    .instagram-icon, .facebook-icon, .waze-icon {
+      position: absolute;
+      top: 18px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      z-index: 2000;
+    }
+       .waze-icon {
+      position: absolute;
+      top: 10px;
+      width: 52px;
+      height: 52px;
+      cursor: pointer;
+      z-index: 2000;
+    }
+
+    .instagram-icon { right: 20px; }
+    .facebook-icon { right: 70px; }
+    .waze-icon { right: 120px; }
+
+    .instagram-icon img, .facebook-icon img, .waze-icon img { width: 100%; height: 100%; }
+
+    /* Image Slider */
+    .slider-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slide { display: none; }
+
+    .slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 50%;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .prev:hover, .next:hover { background: rgba(255,255,255,0.3); }
+
+    .dots { text-align: center; margin-top: 10px; }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #dbd2d2;
+      display: inline-block;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .active-dot { background-color: #6b4f33; }
+
+    /* Reviews Slider */
+    .reviews-container { max-width: 800px; margin: auto; position: relative; text-align: right; }
+    .review-slide { display: none; font-size: 1.1rem; line-height: 1.6; color: #333; }
+    .review-slide div { font-size: 1.1rem; color: #FFD700; margin-top: 5px; }
+    .review-slide span { display: block; margin-top: 10px; font-weight: bold; font-size: 0.9rem; color: #6b4f33; }
+
+    /* Fade Animation */
+    .fade { animation-name: fadeEffect; animation-duration: 1s; }
+    @keyframes fadeEffect { from {opacity: 0.4;} to {opacity: 1;} }
+
+    section { width: 90%; max-width: 1000px; margin: auto; padding: 50px 0; }
+    .center { text-align: center; }
+
+    /* Menu image */
+    .menu-image-container { display: flex; justify-content: center; align-items: center; height: auto; flex-direction: column; }
+    .menu-image-container img { width: 650px; height: 650px; object-fit: cover; border-radius: 12px; }
+
+    /* Footer */
+    footer { background: #fff3e8; text-align: center; padding: 25px; margin-top: 40px; font-size: 1.2rem; border-radius: 12px; color: #333; letter-spacing: 0.05em; }
+
+    /* WhatsApp Button */
+    .whatsapp { position: fixed; bottom: 24px; left: 24px; width: 64px; height: 64px; background: #25d366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); transition: transform 0.3s; }
+    .whatsapp:hover { transform: scale(1.1); }
+    .whatsapp img { width: 34px; height: 34px; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .top-nav { display: none; flex-direction: column; }
+      .top-nav.active { display: flex; }
+      .menu-image-container img { width: 90%; height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="https://www.waze.com/he/live-map/directions/il/%D7%9E%D7%97%D7%95%D7%96-%D7%94%D7%9E%D7%A8%D7%9B%D7%96/%D7%92%D7%93%D7%A8%D7%94/%D7%A2%D7%92%D7%9C%D7%AA-%D7%A7%D7%A4%D7%94-%D7%9C%D7%95%D7%A6%D7%94?to=place.ChIJ4Z4QNha7AhURTWnLd8leju4" target="_blank" class="waze-icon">
+      <img src="https://i.postimg.cc/6QKFHP0P/2396c66078506924ec1ad29ded70288f-removebg-preview.png" alt="Waze">
+    </a>
+    <a href="https://www.instagram.com/lucche.coffee/?hl=he" target="_blank" class="instagram-icon">
+      <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png">
+    </a>
+    <a href="https://www.facebook.com/p/Lucche-Coffee-61570165305365/" target="_blank" class="facebook-icon">
+      <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-app-round-white-icon.png">
+    </a>
+
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    <img src="https://i.postimg.cc/sDcnj29B/Chat-GPT-Image-Dec-5-2025-05-19-27-PM-removebg-preview.png" class="logo">
+    <nav class="top-nav" id="topNav">
+      <a href="#home">דף הבית</a>
+      <a href="https://wa.me/972545533305" target="_blank">צור קשר</a>
+      <a href="#gallery">תמונות</a>
+    </nav>
+  </header>
+
+  <!-- Image Slider -->
+  <section id="menu" class="center">
+    <div class="slider-container">
+      <div class="slide fade"><img src="https://i.postimg.cc/9MM8KHqY/560067279-17895764505334332-5749931313112252819-n.jpg"></div>
+      <div class="slide fade"><img src="https://i.postimg.cc/Sx4p5jQG/556304779-17895053283334332-4470758000655276598-n.jpg"></div>
+      <div class="slide fade"><img src="https://i.postimg.cc/cC3VkGVX/531170620-17889377916334332-6501378100617831379-n.jpg"></div>
+      <div class="slide fade"><img src="https://i.postimg.cc/m2QvQR3g/531279144-17889085965334332-9085551459272824471-n.jpg"></div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+  </section>
+
+  <!-- Reviews Slider -->
+  <section id="reviews" class="center" style="margin-top:50px;">
+    <h2 style="font-size:30px; font-weight:bold; margin-bottom:20px;">ביקורות</h2>
+    <div class="reviews-container">
+      <div class="review-slide fade">
+        <p>עגלת קפה לוצ'ה היא הדבר השני הכי טוב שקרה בגן ביל"ו בעשרות השנים האחרונות – הראשון, כמובן, היה הקמת גן המשחקים עם הקירוי והריצוף הגומי...</p>
+        <div>⭐⭐⭐⭐⭐</div>
+        <span>Natalie Malihin - לפני 5 חודשים</span>
+      </div>
+      <div class="review-slide fade">
+        <p>העגלת קפה הכי טובה שהייתי בה בפער ענק מאחרות! יחס חם ואדיב, אוכל טעים ומובחר ומיקום וואו לכל המשפחה...</p>
+        <div>⭐⭐⭐⭐⭐</div>
+        <span>sandra klainer - לפני 4 חודשים</span>
+      </div>
+      <div class="review-slide fade">
+        <p>עגלת קפה עם אוכל מעולה ושירות נהדר, הגעתי למקום ממש במקרה והמקום היה ריק. להפתעתי ישר יצאו להתנצלו וגם פיצו...</p>
+        <div>⭐⭐⭐⭐⭐</div>
+        <span>alin cooperman - לפני 5 חודשים</span>
+      </div>
+      <div class="review-slide fade">
+        <p>באנו עם הילדים בימי שישי כשאין גן... יש שם מרחב גדול לילדים וגם הגן משחקים אפשר להם להעביר את הזמן בכיף! הפיצה פצצה והסלט קפרזה- חייבים לנסות!!</p>
+        <div>⭐⭐⭐⭐⭐</div>
+        <span>מור אוחיון - לפני 3 חודשים</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>כל הזכויות שמורות לקפה לוצה © 2025</footer>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp" href="https://wa.me/972545533305" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" />
+  </a>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const topNav = document.getElementById('topNav');
+    hamburger.addEventListener('click', () => { topNav.classList.toggle('active'); });
+
+    // Image Slider
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) { showSlides(slideIndex += n); }
+    function currentSlide(n) { showSlides(slideIndex = n); }
+
+    function showSlides(n) {
+      const slides = document.getElementsByClassName("slide");
+      const dots = document.getElementsByClassName("dot");
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      for (let slide of slides) slide.style.display = "none";
+      for (let dot of dots) dot.classList.remove("active-dot");
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].classList.add("active-dot");
+    }
+
+    // Automatic slideshow
+    setInterval(() => { plusSlides(1); }, 4000);
+
+    // Reviews Slider
+    let reviewIndex = 0;
+    function showReviews() {
+      const slides = document.getElementsByClassName("review-slide");
+      for (let slide of slides) slide.style.display = "none";
+      reviewIndex++;
+      if (reviewIndex > slides.length) reviewIndex = 1;
+      slides[reviewIndex-1].style.display = "block";
+      setTimeout(showReviews, 5000);
+    }
+    showReviews();
+  </script>
+</body>
+</html>
