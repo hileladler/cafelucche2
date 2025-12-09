@@ -31,7 +31,7 @@
 header .logo {
   width: 160px;
   display: block;
-  margin: 15px auto 3px; /* הלוגו יותר נמוך עכשיו */
+  margin: 15px auto 3px;
 }
 
 .top-nav {
@@ -116,36 +116,11 @@ header .logo {
     section { width: 90%; max-width: 1000px; margin: auto; padding: 50px 0; }
     .center { text-align: center; }
 
-    /* Menu image */
-    .menu-image-container { display: flex; justify-content: center; align-items: center; height: auto; flex-direction: column; }
-    .menu-image-container img { width: 650px; height: 650px; object-fit: cover; border-radius: 12px; }
 
-    /* Articles */
-    #articles { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 40px auto; max-width: 1000px; }
-    .article-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-      width: 320px;
-      height: 200px;
-      flex: 1 1 320px;
-    }
-    .article-card img { width: 100%; height: 100%; object-fit: cover; }
-    .article-card div.caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      padding: 12px;
-      font-size: 1.1rem;
-      text-align: center;
-      box-sizing: border-box;
-    }
+/* About card (מי אנחנו) */
 .about-card {
   width: 90%;
-  max-width: 800px;
+  max-width: 500px;
   margin: 40px auto;
   background: #ffffff;
   border-radius: 14px;
@@ -153,20 +128,41 @@ header .logo {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
-
 .about-card img {
   width: 100%;
-  max-height: 450px;
+  max-height: 350px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 20px;
 }
-
 .about-card p {
-  font-size: 1.2rem;
-  line-height: 2;
+  font-size: 1.1rem;
+  line-height: 1.8;
   white-space: pre-line;
-  font-weight: 400;
+}
+
+/* Articles */
+#articles { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 40px auto; max-width: 1000px; }
+.article-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  width: 320px;
+  height: 200px;
+  flex: 1 1 320px;
+}
+.article-card img { width: 100%; height: 100%; object-fit: cover; }
+.article-card div.caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 12px;
+  font-size: 1.1rem;
+  text-align: center;
+  box-sizing: border-box;
 }
 
     /* Footer */
@@ -183,9 +179,6 @@ header .logo {
       .top-nav { display: none; flex-direction: column; }
       .top-nav.active { display: flex; }
       .menu-image-container img { width: 90%; height: auto; }
-
-      /* Articles become carousel on mobile */
-
     }
   </style>
 </head>
@@ -208,10 +201,13 @@ header .logo {
     <img src="https://i.postimg.cc/sDcnj29B/Chat-GPT-Image-Dec-5-2025-05-19-27-PM-removebg-preview.png" class="logo">
     <nav class="top-nav" id="topNav">
       <a href="#home">דף הבית</a>
+      <a href="#about">מי אנחנו</a>
       <a href="https://wa.me/972502245088" target="_blank">צור קשר</a>
-      <a href="reviews">ביקורות</a>
+      <a href="#reviews">ביקורות</a>
     </nav>
   </header>
+
+<!-- About -->
 <section id="about">
   <div class="about-card">
     <h2 style="font-size:30px; font-weight:bold; margin-bottom:20px;">
@@ -233,7 +229,6 @@ header .logo {
     </p>
   </div>
 </section>
-
 
   <!-- Image Slider -->
   <section id="menu" class="center">
@@ -345,23 +340,9 @@ header .logo {
     }
     showReviews();
 
-    // Mobile Articles Carousel
-
-
-    // Re-run carousel on resize for responsiveness
-    window.addEventListener("resize", () => {
-      articleIndex = 0;
-      const articles = document.querySelectorAll("#articles .article-card");
-      for (let art of articles) art.style.display = window.innerWidth <= 768 ? "none" : "block";
-      if (window.innerWidth <= 768) showArticlesCarousel();
-    });
   </script>
 </body>
 </html>
-
-
-
-
 
 
 
