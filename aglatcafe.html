@@ -13,7 +13,7 @@
       font-family: 'Rubik', sans-serif;
       font-weight: 300;
       background: #ffffff;
-      color: #333;
+      color: #000000;
       overflow-x: hidden;
       letter-spacing: 0.03em;
     }
@@ -21,25 +21,36 @@
 
     /* Header */
     header {
-      background: linear-gradient(to bottom, #8a6432, #5e421f);
+      background: linear-gradient(to bottom, #000000, #000000);
       color: white;
       text-align: center;
       padding: 1px 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       position: relative;
     }
-    header .logo { width: 160px; display: block; margin: 0 auto 3px; }
-    .top-nav { position: relative; top: -25px; text-align: center; }
-    .top-nav a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.15rem;
-      font-weight: 300;
-      padding: 4px 6px;
-      border-radius: 6px;
-      transition: 0.3s;
-      letter-spacing: 0.05em;
-    }
+header .logo {
+  width: 160px;
+  display: block;
+  margin: 15px auto 3px; /* הלוגו יותר נמוך עכשיו */
+}
+
+.top-nav {
+  position: relative;
+  top: -25px;
+  text-align: center;
+}
+
+.top-nav a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.15rem;
+  font-weight: 300;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: 0.3s;
+  letter-spacing: 0.05em;
+}
+
     .top-nav a:hover { background: rgba(255, 255, 255, 0.2); top: -5px; }
 
     .hamburger { display: none; position: absolute; left: 20px; top: 18px; width: 30px; height: 24px; flex-direction: column; justify-content: space-between; cursor: pointer; z-index: 1000; }
@@ -90,13 +101,13 @@
       border-radius: 50%;
       cursor: pointer;
     }
-    .active-dot { background-color: #6b4f33; }
+    .active-dot { background-color: #000000; }
 
     /* Reviews Slider */
     .reviews-container { max-width: 800px; margin: auto; position: relative; text-align: right; }
     .review-slide { display: none; font-size: 1.1rem; line-height: 1.6; color: #333; }
     .review-slide div { font-size: 1.1rem; color: #FFD700; margin-top: 5px; }
-    .review-slide span { display: block; margin-top: 10px; font-weight: bold; font-size: 0.9rem; color: #6b4f33; }
+    .review-slide span { display: block; margin-top: 10px; font-weight: bold; font-size: 0.9rem; color: #000000; }
 
     /* Fade Animation */
     .fade { animation-name: fadeEffect; animation-duration: 1s; }
@@ -151,9 +162,7 @@
       /* Articles become carousel on mobile */
       #articles { display: block; overflow: hidden; position: relative; }
       .article-card { width: 100%; margin-bottom: 15px; display: none; } /* hide all initially, JS will show one at a time */
-  .logo {
-    margin-top: 15px; /* אפשר לשנות את המספר לפי כמה שתרצה */
-  }
+
 
     }
   </style>
@@ -315,6 +324,7 @@
   </script>
 </body>
 </html>
+
 
 
 
